@@ -19,9 +19,62 @@ body {
 .fulltime-field {
   display: inline-block; }
 
+.search-form {
+  text-align: center; }
+
 .submit {
   padding-left: 10px;
   display: inline-block; }
 
 .page__title {
   font-size: 16px; }
+
+.job__company {
+  display: inline-block;
+  padding-left: 10px; }
+
+.job-list__title {
+  text-align: center; }
+
+.job__fulltime {
+  display: inline-block;
+  color: green; }
+
+.job__location {
+  padding-left: 10px; }
+
+.job__title {
+  font-size: 16px;
+  padding-left: 10px;
+  color: blue; }
+
+.job {
+  border: solid 1px black;
+  width: 800px;
+  margin: 0px auto; }
+
+.body {
+  background-color: grey; }
+
+.job-page-wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  padding-left: 200px; }
+
+.job-page__company-info {
+  display: block;
+  width: 20vw;
+  border: 1px solid #ddd; }
+
+.job-page__company-info img {
+  width: 100%; }
+
+.job-page__description {
+  width: 40vw;
+  border: 1px solid #ddd; }
+
+.job-page__title {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center; }

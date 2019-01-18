@@ -1,21 +1,23 @@
 import React, { Component } from "react";
 
-import Search from '../components/Search.jsx'
-import Jobs from '../components/Jobs.jsx'
+import StartPage from "../containers/StartPage"
+import Job from "./Job.jsx"
+
+import { Switch, Route } from 'react-router-dom'
 
 import '../sass/style.sass'
 
 class App extends Component {
+
     render() {
         return (
-            <div className="wrapper">
-                <h1 className="title">Digital Ecosystems Test App</h1>
-                <Search />
-                <Jobs />
-            </div>
-
+                <Switch>
+                    <Route exact path='/' component={StartPage}/>
+                    <Route path='/job/:id' component={Job}/>
+                </Switch>
+                
         );
     }
 }
-
-export default App;
+  
+export default App
