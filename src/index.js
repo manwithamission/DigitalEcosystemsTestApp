@@ -9,7 +9,7 @@ import { rootReducer } from './reducers';
 import { BrowserRouter } from 'react-router-dom';
 
 export const store = createStore(rootReducer, applyMiddleware(thunk, logger));
-console.log(store.getState());
+// console.log(store.getState());
 
 ReactDOM.render( 
     <Provider store={store}>
