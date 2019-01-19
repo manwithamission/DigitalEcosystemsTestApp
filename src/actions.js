@@ -45,7 +45,7 @@ var json = (response) => {
 
 export const getJobs = (description, location, fulltime, page) => {
     console.log(description, location, fulltime, page);
-    const jobs = fetch(`https://cors.io/?https://jobs.github.com/positions.json?utf8=%E2%9C%93&description=${description}&location=${location}&full_time=on&page=${page}`
+    const jobs = fetch(`https://cors.io/?https://jobs.github.com/positions.json?utf8=%E2%9C%93&description=${description}&location=${location}&full_time=${fulltime}&page=${page}`
         // , { 
         //     mode: "cors",
         //     method: "GET",

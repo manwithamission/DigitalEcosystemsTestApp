@@ -27,6 +27,12 @@ module.exports = {
             }
         ]
     },
+    // devServer: { 
+    //     historyApiFallback:
+    //     {
+    //          index:"./src/index.html"
+    //     }
+    // },
     plugins: [
         new ExtractTextPlugin('style.css'),
         new HtmlWebpackPlugin({

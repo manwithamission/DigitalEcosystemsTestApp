@@ -6,7 +6,6 @@ import { Link } from "react-router-dom"
 class Jobs extends Component {
 
     componentDidMount() {
-        // getJobs("", "", "");
         window.addEventListener("scroll", this.onScroll.bind(this))
     }
 

@@ -7,7 +7,7 @@ class Search extends Component {
         this.state = {
             description: "",
             location: "",
-            fulltime: "off"
+            fulltime: false
         }
     }
 
@@ -22,19 +22,17 @@ class Search extends Component {
         this.setState({
             location: e.currentTarget.value
         })
-        // console.log(this.state.location);
     }
 
-    ChangeFulltimeStatus() {
+    ChangeFulltimeStatus(e) {
         this.setState({
-            fulltime: !this.state.fulltime
+            fulltime: e.currentTarget.checked
         })
-        // console.log(this.state.fulltime);
     }
 
     OnRequestJobs() {
-        // console.log('dsadsadasda', this.state);
-        getJobs(this.state.description, this.state.location, this.state.fulltime, "0");
+        let fulltime = this.state.fulltime === true ? "on" : "off";
+        getJobs(this.state.description, this.state.location, fulltime, "0");
     }
 
     render() {

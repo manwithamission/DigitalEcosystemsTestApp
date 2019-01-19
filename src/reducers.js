@@ -11,7 +11,7 @@ const initialState = {
 export const rootReducer = (state = initialState, action) => {
     switch (action.type) {
         case REQUEST_JOBS:
-            console.log('JOBS: ', action.payload);
+            // console.log('JOBS: ', action.payload);
             return { ...state, fetching: action.payload , isLoading: true};
             
         case RECEIVE_JOBS:
@@ -24,7 +24,7 @@ export const rootReducer = (state = initialState, action) => {
             };
 
         case REQUEST_JOB:
-            console.log('JOBS: ', action.payload);
+            // console.log('JOBS: ', action.payload);
             return { ...state, fetching: action.payload , isLoading: true};
             
         case RECEIVE_JOB:
