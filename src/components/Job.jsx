@@ -12,26 +12,40 @@ class Job extends Component {
     }
 
     render() { 
+        let {title, type, description, company, company_logo, company_url, how_to_apply} = this.props.job;
         return (
             <div className="job-page">
-                <h1 className="job-page__title">
-                    {this.props.job.title}
-                </h1>
+                <div className="job-page-title">
+                    {title}, {type}
+                </div>
                 <div className="job-page-wrapper">
                     
-                    <div className="job-page__description">
-                            { ReactHtmlParser(this.props.job.description) }
-                    </div>
-
-                    <div className="job-page__company-info">
-                        <div className="company-name">
-                            {this.props.job.company}
+                    <div className="job-page-info">
+                        <div className="job-page-desription">
+                            { ReactHtmlParser(description) }
                         </div>
-                        <img src={this.props.job.company_logo} alt=""/>
+                        
+                        <div className="job-page-company-info">
+                            <div className="company-name">
+                                {company}
+                            </div>
+                            <img src={company_logo} alt=""/>
+                            <div className="job-page-company-link">
+                                <a href={company_url}>{company_url}</a>
+                            </div> 
+                            <div className="job-page-how-to-apply">
+                                <h3>How to apply</h3>
+                                
+                                {ReactHtmlParser(how_to_apply)}
+                            </div>
+                        </div>
+                        
                     </div>
                     
                 </div>
-                   
+                {
+                    this.props.isLoading ? <img style={{ marginLeft: "calc(50vw - 128px)" }} src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" alt="" /> : ""
+                }
 
             </div>
         )

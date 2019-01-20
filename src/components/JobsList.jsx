@@ -18,7 +18,7 @@ class Jobs extends Component {
     }
 
     onScroll() {
-        console.log(window.scrollY, window.innerHeight, this.state.scrollposition);
+        // console.log(window.scrollY, window.innerHeight, this.state.scrollposition);
         if (window.scrollY > this.state.scrollposition) {
             getJobs("", "", "", this.state.page);
             this.setState({
