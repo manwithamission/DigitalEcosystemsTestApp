@@ -6,7 +6,8 @@ module.exports = {
     entry: "./src/index.js",
     output: {
         path: path.join(__dirname, "/build"),
-        filename: "index_bundle.js"
+        filename: "index_bundle.js",
+        publicPath: '/'
     },
     module: {
         rules: [
@@ -27,12 +28,9 @@ module.exports = {
             }
         ]
     },
-    // devServer: { 
-    //     historyApiFallback:
-    //     {
-    //          index:"./src/index.html"
-    //     }
-    // },
+    devServer: { 
+        historyApiFallback: true
+    },
     plugins: [
         new ExtractTextPlugin('style.css'),
         new HtmlWebpackPlugin({

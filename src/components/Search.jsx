@@ -38,12 +38,12 @@ class Search extends Component {
     render() {
         return (
             <div className="search-form">
-                <div className="form">
+                <div className="form-description">
                     <h3 className="form__title">Job description</h3>
                     <input onChange={this.ChangeDescription.bind(this)} placeholder="Filter by title, benefits, companies, expertise" className="form__description">
                     </input>
                 </div>
-                <div className="form">
+                <div className="form-location">
                     <h3 className="form__title">Location</h3>
                     <input onChange={this.ChangeLocation.bind(this)} placeholder="Filter by city, state, zipcode or country" className="form__location">
                     </input>
