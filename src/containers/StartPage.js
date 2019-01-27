@@ -11,13 +11,14 @@ import '../sass/style.sass'
 class StartPage extends Component {
 
     render() {
-        const { isLoading, jobs } = this.props;
+        const { notfound, isLoading, jobs } = this.props;
+        console.log(this.props);
         return (
             <div className="wrapper">
                 <h1 className="title">Digital Ecosystems Test App</h1>
                 
                 <Search /> 
-                <Jobs isLoading={isLoading} jobs={jobs}/>
+                <Jobs notfound={notfound} isLoading={isLoading} jobs={jobs}/>
                 
             </div>
 
@@ -27,11 +28,10 @@ class StartPage extends Component {
 
 const mapStateToProps = state => {
     return {
-      jobs: state.jobs,
-      fetching: state.fetching,
-      error: state.error,
-      isLoading: state.isLoading
+        jobs: state.jobs,
+        notfound: state.notfound,
+        isLoading: state.isLoading
     };
-  };
+};
   
 export default connect(mapStateToProps, { getJobs })(StartPage);

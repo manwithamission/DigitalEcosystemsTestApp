@@ -5,6 +5,7 @@ const initialState = {
     fetched: false,
     error: null,
     isLoading: false,
+    notfound: false,
     job: []
 };
 
@@ -20,7 +21,8 @@ export const rootReducer = (state = initialState, action) => {
                 fetched: true,
                 fetching: false,
                 jobs: action.payload.page !== "0" ?  [...action.payload.data, ...state.jobs ] : action.payload.data,
-                isLoading: false
+                isLoading: false,
+                notfound: (action.payload.data).length === 0 ? true : false
             };
 
         case REQUEST_JOB:

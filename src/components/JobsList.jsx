@@ -6,7 +6,11 @@ import { Link } from "react-router-dom"
 class Jobs extends Component {
 
     componentDidMount() {
-        window.addEventListener("scroll", this.onScroll.bind(this))
+        window.addEventListener("scroll", this.onScroll);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.onScroll);
     }
 
     constructor(props) {
@@ -17,7 +21,7 @@ class Jobs extends Component {
         }
     }
 
-    onScroll() {
+    onScroll = () => {
         // console.log(window.scrollY, window.innerHeight, this.state.scrollposition);
         if (window.scrollY > this.state.scrollposition) {
             getJobs("", "", "", this.state.page);
@@ -34,7 +38,7 @@ class Jobs extends Component {
                 <h1 className="job-list__title">Showing {(this.props.jobs).length} jobs</h1>
                 {
                     this.props.jobs.map(job => {
-                        return <Link to={"/job/" + job.id}>
+                        return <Link key={job.id} to={"/job/" + job.id}>
                             <div className="job">
                                 <h1 className="job__title">{job.title}</h1>
                                 <div className="job-info">
@@ -48,6 +52,9 @@ class Jobs extends Component {
                 }
                 {
                     this.props.isLoading ? <img style={{ marginLeft: "calc(50vw - 128px)" }} src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" alt="" /> : ""
+                }
+                {
+                    this.props.notfound === true ? <p className="result-title"> Not found </p> : ""
                 }
 
             </div>

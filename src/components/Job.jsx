@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
 import { Link } from "react-router-dom"
 
-
 class Job extends Component {
 
     constructor(props) {
@@ -13,7 +12,7 @@ class Job extends Component {
     }
 
     render() { 
-        let {title, type, description, company, company_logo, company_url, how_to_apply} = this.props.job;
+        const {title, type, description, company, company_logo, company_url, how_to_apply} = this.props.job;
         return (
             <div className="job-page">
                 <Link to={"/"} >
@@ -60,11 +59,8 @@ class Job extends Component {
 
 const mapStateToProps = state => {
     return {
-      jobs: state.jobs,
-      fetching: state.fetching,
-      error: state.error,
-      isLoading: state.isLoading,
-      job: state.job
+        isLoading: state.isLoading,
+        job: state.job
     };
   };
   

@@ -11,27 +11,15 @@ class Search extends Component {
         }
     }
 
-    ChangeDescription(e) {
+    onChangeParams = e =>  {
+        const { id, value } = e.currentTarget;
         this.setState({
-            description: e.currentTarget.value
-        })
-        console.log(this.state.description);
-    }
-
-    ChangeLocation(e) {
-        this.setState({
-            location: e.currentTarget.value
+            [id]: value
         })
     }
 
-    ChangeFulltimeStatus(e) {
-        this.setState({
-            fulltime: e.currentTarget.checked
-        })
-    }
-
-    OnRequestJobs() {
-        let fulltime = this.state.fulltime === true ? "on" : "off";
+    onRequestJobs = () => {
+        const fulltime = this.state.fulltime === true ? "on" : "off";
         getJobs(this.state.description, this.state.location, fulltime, "0");
     }
 
@@ -40,20 +28,20 @@ class Search extends Component {
             <div className="search-form">
                 <div className="form-description">
                     <h3 className="form__title">Job description</h3>
-                    <input onChange={this.ChangeDescription.bind(this)} placeholder="Filter by title, benefits, companies, expertise" className="form__description">
+                    <input id="description" onChange={this.onChangeParams} placeholder="Filter by title, benefits, companies, expertise" className="form__description">
                     </input>
                 </div>
                 <div className="form-location">
                     <h3 className="form__title">Location</h3>
-                    <input onChange={this.ChangeLocation.bind(this)} placeholder="Filter by city, state, zipcode or country" className="form__location">
+                    <input id="location" onChange={this.onChangeParams} placeholder="Filter by city, state, zipcode or country" className="form__location">
                     </input>
                 </div>
                 <div className="fulltime-field">
-                    <input checked={this.state.fulltime} onChange={this.ChangeFulltimeStatus.bind(this)} type="checkbox"/>
+                    <input id="fulltime" checked={this.state.fulltime} onChange={this.onChangeParams} type="checkbox"/>
                     Full Time Only
                 </div>
                 <div className="submit">
-                    <button onClick={this.OnRequestJobs.bind(this)}>Submit</button>
+                    <button onClick={this.onRequestJobs}>Submit</button>
                 </div>
             </div>  
         )
