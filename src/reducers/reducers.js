@@ -1,11 +1,12 @@
-import { REQUEST_JOBS, RECEIVE_JOBS, REQUEST_JOB, RECEIVE_JOB } from './actions.js';
+import { REQUEST_JOBS, RECEIVE_JOBS, REQUEST_JOB, RECEIVE_JOB } from '../actions/actions.js';
+
 const initialState = {
     jobs: [],
     fetching: false,
     fetched: false,
     error: null,
     isLoading: false,
-    notfound: false,
+    // notfound: false,
     job: []
 };
 
@@ -22,7 +23,7 @@ export const rootReducer = (state = initialState, action) => {
                 fetching: false,
                 jobs: action.payload.page !== "0" ?  [...action.payload.data, ...state.jobs ] : action.payload.data,
                 isLoading: false,
-                notfound: (action.payload.data).length === 0 ? true : false
+                // notfound: (action.payload.data).length === 0 ? true : false
             };
 
         case REQUEST_JOB:
@@ -40,5 +41,5 @@ export const rootReducer = (state = initialState, action) => {
         
         default:
             return state;
-  }
+    }
 };

@@ -1,4 +1,4 @@
-import { store } from "./index"
+import { store } from "../index"
 
 export const REQUEST_JOBS = 'REQUEST_JOBS'
 function requestJobs() {
@@ -45,15 +45,7 @@ var json = (response) => {
 
 export const getJobs = (description, location, fulltime, page) => {
     console.log(description, location, fulltime, page);
-    const jobs = fetch(`https://cors.io/?https://jobs.github.com/positions.json?utf8=%E2%9C%93&description=${description}&location=${location}&full_time=${fulltime}&page=${page}`
-        // , { 
-        //     mode: "cors",
-        //     method: "GET",
-        //     headers: {
-        //         Accept: "application/json"
-        //     }   
-        // }
-    );
+    const jobs = fetch(`https://cors.io/?https://jobs.github.com/positions.json?utf8=%E2%9C%93&description=${description}&location=${location}&full_time=${fulltime}&page=${page}`);
         store.dispatch(requestJobs());
         jobs
         .then(status)
@@ -64,15 +56,7 @@ export const getJobs = (description, location, fulltime, page) => {
 };
 
 export const getJob = (id) => {
-    const jobs = fetch(`https://cors.io/?https://jobs.github.com/positions/${id}.json`
-        // , { 
-        //     mode: "cors",
-        //     method: "GET",
-        //     headers: {
-        //         Accept: "application/json"
-        //     }   
-        // }
-    );
+    const jobs = fetch(`https://cors.io/?https://jobs.github.com/positions/${id}.json`);
         store.dispatch(requestJob());
         jobs
         .then(status)

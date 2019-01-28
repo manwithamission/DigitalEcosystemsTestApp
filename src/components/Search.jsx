@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getJobs } from '../actions.js';
+import { getJobs } from '../actions/actions.js';
 
 class Search extends Component {
     constructor() {

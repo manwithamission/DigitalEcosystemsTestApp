@@ -5,17 +5,17 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { rootReducer } from './reducers';
+import { rootReducer } from './reducers/reducers';
 import { BrowserRouter } from 'react-router-dom';
 
 export const store = createStore(rootReducer, applyMiddleware(thunk, logger));
-// console.log(store.getState());
+// console.log('privert',store.getState());
 
 ReactDOM.render( 
     <Provider store={store}>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </Provider>,
     document.getElementById("root")
 );

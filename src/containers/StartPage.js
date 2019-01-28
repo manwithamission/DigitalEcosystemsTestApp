@@ -4,7 +4,7 @@ import Search from '../components/Search.jsx'
 import Jobs from '../components/JobsList.jsx'
 
 import { connect } from 'react-redux';
-import { getJobs } from '../actions.js';
+import { getJobs } from '../actions/actions.js';
 
 import '../sass/style.sass'
 
@@ -12,7 +12,6 @@ class StartPage extends Component {
 
     render() {
         const { notfound, isLoading, jobs } = this.props;
-        console.log(this.props);
         return (
             <div className="wrapper">
                 <h1 className="title">Digital Ecosystems Test App</h1>

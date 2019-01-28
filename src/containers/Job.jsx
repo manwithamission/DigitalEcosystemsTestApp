@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getJob } from '../actions.js';
+import { getJob } from '../actions/actions.js';
 import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
 import { Link } from "react-router-dom"

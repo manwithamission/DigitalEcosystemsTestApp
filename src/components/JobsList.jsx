@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getJobs } from '../actions.js';
+import { getJobs } from '../actions/actions.js';
 
 import { Link } from "react-router-dom"
 
@@ -34,6 +34,7 @@ class Jobs extends Component {
 
     render() {
         return (
+            
             <div className="job-list">
                 <h1 className="job-list__title">Showing {(this.props.jobs).length} jobs</h1>
                 {
@@ -54,7 +55,7 @@ class Jobs extends Component {
                     this.props.isLoading ? <img style={{ marginLeft: "calc(50vw - 128px)" }} src="https://loading.io/spinners/double-ring/lg.double-ring-spinner.gif" alt="" /> : ""
                 }
                 {
-                    this.props.notfound === true ? <p className="result-title"> Not found </p> : ""
+                    (this.props.jobs).length < 1 ? <h2 className="result-title"> Not found </h2> : ""
                 }
 
             </div>

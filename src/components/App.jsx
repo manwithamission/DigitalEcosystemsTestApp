@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import StartPage from "../containers/StartPage"
-import Job from "./Job.jsx"
+import Job from "../containers/Job.jsx"
 
 import { Switch, Route } from 'react-router-dom'
 
